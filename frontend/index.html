@@ -17,9 +17,35 @@
         </header>
 
         <main>
-            <section id="product-list" class="product-grid">
+            <div class="filters">
+                <label>
+                    Min Price: 
+                    <input type="number" id="minPrice" placeholder="0" />
+                </label>
+                <label>
+                    Max Price: 
+                    <input type="number" id="maxPrice" placeholder="5000" />
+                </label>
+                <label>
+                    Min Popularity: 
+                    <input type="number" id="minPopularity" step="0.1" placeholder="0" />
+                </label>
+                <label>
+                    Max Popularity: 
+                    <input type="number" id="maxPopularity" step="0.1" placeholder="5" />
+                </label>
+                <button id="applyFilters">Apply Filters</button>
+            </div>
 
-            </section>
+            <div class="carousel-container">
+                <button class="carousel-btn left-btn">&#10094;</button>
+
+                <div class="carousel" id="product-list">
+
+                </div>
+
+                <button class="carousel-btn right-btn">&#10095;</button>
+            </div>
         </main>
 
         <footer>

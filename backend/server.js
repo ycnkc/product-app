@@ -55,7 +55,7 @@ app.get('/api/products', async(req, res) => {
 
     if (maxPopularity) {
         productsWithPrice = productsWithPrice.filter(
-            p => p.popularityScore <= Number(maxPopularity)
+            p => (p.popularityScore) <= Number(maxPopularity)
         );
     }
 
