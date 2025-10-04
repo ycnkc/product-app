@@ -54,13 +54,13 @@ app.get('/api/products', async(req, res) => {
 
     if (minPopularity) {
         productsWithPrice = productsWithPrice.filter(
-            p => p.popularityScore >= Number(minPopularity)
+            p => p.popularityScore * 5 >= Number(minPopularity)
         );
     }
 
     if (maxPopularity) {
         productsWithPrice = productsWithPrice.filter(
-            p => (p.popularityScore) <= Number(maxPopularity)
+            p => (p.popularityScore) * 5 <= Number(maxPopularity)
         );
     }
 
