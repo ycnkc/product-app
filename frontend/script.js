@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:4000/api/products";
+const API_URL = "https://product-api-yaren.onrender.com/api/products";
 
 async function fetchProducts(url = API_URL) {
     try {
