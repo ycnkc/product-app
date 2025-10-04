@@ -175,7 +175,7 @@ footer {
     padding: 10px 16px;
     cursor: pointer;
     font-size: 14px;
-    color: black;
+    color: black !important;
     transition: background 0.2s;
 }
 
