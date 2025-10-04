@@ -16,7 +16,13 @@ const getGoldPrice = async () => {
     const headers = {'x-access-token': process.env.GOLD_API_KEY };
     try {
         const response = await axios.get(url, { headers });
-        return response.data.price;
+
+        if (response.data.price_gram_24k) {
+            return response.data.price_gram_24k;
+        } else {
+            return response.data.price / 31.1;
+        }
+
     } catch (err) {
         console.error('Could not fetch gold price, using constant value', err);
         return 60;
@@ -26,10 +32,9 @@ const getGoldPrice = async () => {
 app.get('/api/products', async(req, res) => {
     try {
     const goldPrice = await getGoldPrice();
-    const goldPricePerGram = goldPrice / 31.1;
 
     let productsWithPrice = products.map(product => {
-        const price = (product.popularityScore + 1) * product.weight * goldPricePerGram;
+        const price = (product.popularityScore + 1) * product.weight * goldPrice;
         return { ...product, price: price.toFixed(2) };
     });
 
