@@ -87,4 +87,20 @@ document.getElementById("applyFilters").addEventListener("click", () => {
   fetchProducts(url);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("toggleFilters");
+  const filterContainer = document.getElementById("filterContainer");
+
+  toggleBtn.addEventListener("click", () => {
+    filterContainer.classList.toggle("hidden");
+
+    if (filterContainer.classList.contains("hidden")) {
+      toggleBtn.textContent = "Filter";
+    } else {
+      toggleBtn.textContent = "Hide Filters";
+    }
+  });
+});
+
+
 fetchProducts();
