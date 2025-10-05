@@ -35,3 +35,9 @@ It consists of two parts:
 ### Live Demo
 - **Frontend (Vercel):** [https://product-app-yaren.vercel.app](https://product-app-yaren.vercel.app)
 - **Backend (Render):** [https://product-api-yaren.onrender.com/api/products](https://product-api-yaren.onrender.com/api/products)
+
+### Notes
+- The backend API is hosted on Render (free tier).  
+  When inactive for a while, the server enters hibernation mode.  
+  In that case, the first request may take a few seconds to wake the server up.  
+  A loading message is displayed on the frontend during this period.
