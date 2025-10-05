@@ -26,11 +26,11 @@ footer {
     text-align: center;
     font-size: 1.2rem;
     color: black;
-    margin-top: 50px;
+    margin: auto;
     display: none;
 }
 
-.loading-active{
+#loading.loading-active{
     display: block;
 }
 

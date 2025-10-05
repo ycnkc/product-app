@@ -12,9 +12,9 @@ async function fetchProducts(url = API_URL) {
     } catch (error) {
         console.error("Error fetching products: ", error);
         loadingElements.textContent = "Failed to load products."
-        return;
-    } 
-    loadingElements.classList.remove("loading-active");
+    } finally {
+        loadingElements.classList.remove("loading-active");
+    }
 }
 
 // render products to the DOM
