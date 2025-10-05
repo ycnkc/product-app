@@ -11,6 +11,7 @@ app.use(cors());
 
 const products = JSON.parse(fs.readFileSync('./products.json', 'utf-8'));
 
+// fetch gold price from api
 const getGoldPrice = async () => {
     const url = 'https://www.goldapi.io/api/XAU/USD';
     const headers = {'x-access-token': process.env.GOLD_API_KEY };
@@ -29,16 +30,17 @@ const getGoldPrice = async () => {
     }
 };
 
+// endpoint to get products
 app.get('/api/products', async(req, res) => {
     try {
     const goldPrice = await getGoldPrice();
-
+    // calculation
     let productsWithPrice = products.map(product => {
         const price = (product.popularityScore + 1) * product.weight * goldPrice;
         return { ...product, price: price.toFixed(2) };
     });
-
-    const { minPrice, maxPrice, minPopularity, maxPopularity } = req.query;
+    // filtering
+    const { minPrice, maxPrice, minPopularity, maxPopularity } = req.query; 
 
     if (minPrice) {
         productsWithPrice = productsWithPrice.filter(

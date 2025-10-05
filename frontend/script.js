@@ -1,5 +1,6 @@
 const API_URL = "https://product-api-yaren.onrender.com/api/products";
 
+// fetch products from API
 async function fetchProducts(url = API_URL) {
   const loadingElements = document.getElementById("loading");
   loadingElements.classList.add("loading-active");
@@ -16,6 +17,7 @@ async function fetchProducts(url = API_URL) {
     }
 }
 
+// render products to the DOM
 function renderProducts(products) {
     const container = document.getElementById("product-list");
     container.innerHTML = "";
@@ -64,6 +66,7 @@ function renderProducts(products) {
     initCarousel();
 }
 
+// carousel functionality
 function initCarousel() {
   const carousel = document.querySelector(".carousel");
   const leftBtn = document.querySelector(".left-btn");
@@ -78,6 +81,7 @@ function initCarousel() {
   });
 }
 
+// filter functionality
 document.getElementById("applyFilters").addEventListener("click", () => {
   const minPrice = document.getElementById("minPrice").value;
   const maxPrice = document.getElementById("maxPrice").value;
