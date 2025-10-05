@@ -1,12 +1,18 @@
 const API_URL = "https://product-api-yaren.onrender.com/api/products";
 
 async function fetchProducts(url = API_URL) {
+  const loadingElements = document.getElementById("loading");
+  loadingElements.classList.add("loading-active");
+
     try {
         const response = await fetch(url);
         const products = await response.json();
         renderProducts(products)
     } catch (error) {
         console.error("Error fetching products: ", error);
+        loadingElements.textContent = "Failed to load products."
+    } finally {
+      loadingElements.classList.remove("loading-active");
     }
 }
 

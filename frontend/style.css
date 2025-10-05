@@ -22,6 +22,18 @@ footer {
     margin-top: 40px;
 }
 
+#loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: black;
+    margin-top: 50px;
+    display: none;
+}
+
+.loading-active{
+    display: block;
+}
+
 .carousel-container {
     position: relative;
     width: 100%;
@@ -88,8 +100,8 @@ footer {
 }
 
 .product-card img{
-    width: 100%;
-    border-radius: 8px;
+    width: 100%; 
+    border-radius: 15px;
     margin-bottom: 12px;
 }
 
