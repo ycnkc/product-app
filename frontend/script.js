@@ -22,6 +22,15 @@ function renderProducts(products) {
     const container = document.getElementById("product-list");
     container.innerHTML = "";
 
+    if (products.length === 0) {
+      container.innerHTML = `
+        <div class="no-products">
+          <p>No products match the selected filters.</p>
+        </div>
+      `;
+      return;
+    }
+
     products.forEach(product => {
         const popularityOutOf5 = (product.popularityScore * 5).toFixed(1);
 
